@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Khalil Monteiro">
+    <meta name="description" content="Aprenda HTML, CSS e JavaScript do zero com exemplos práticos e fáceis de entender.">
+    <meta name="keywords" content="HTML, CSS, JavaScript, tutorial, web, front-end, desenvolvimento web">
+    <title>Tutorial Website - HTML, CSS e JavaScript</title>
+    <link rel="icon" href="visual/img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="visual/css/estilo.css">
+</head>
+<body>
+    <div id="tudo">
+        <!-- Link de pular para conteúdo (acessibilidade) -->
+        <a class="skip-link sr-only" href="#conteudo-principal">Ir para o conteúdo principal</a>
+
+        <header>
+            <div class="container">
+                <h1>Tutorial Web</h1>
+                <p class="tagline">Aprenda desenvolvimento web do zero</p>
+            </div>
+
+            <nav aria-label="Menu principal">
+                <ul id="menu">
+                    <li><a href="#" aria-current="page">Introdução</a></li>
+                    <li><a href="pags/tags.html">HTML</a></li>
+                    <li><a href="pags/propriedades.html">CSS</a></li>
+                    <li><a href="pags/javascript.html">JavaScript</a></li>
+                </ul>
+                
+                <!-- Botão menu mobile -->
+                <button class="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="menu">
+                    <span class="hamburger"></span>
+                </button>
+            </nav>
+        </header>
+
+        <main id="conteudo-principal">
+            <section id="corpo">
+                <div id="titulo">
+                    <h2>Introdução ao Desenvolvimento Web</h2>
+                </div>
+                
+                <div id="conteudo" class="fade-in">
+                    <p>Este site tem como objetivo ensinar os fundamentos do desenvolvimento web utilizando 
+                    <strong>HTML</strong>, <strong>CSS</strong> e <strong>JavaScript</strong>. Você aprenderá como criar páginas 
+                    modernas e responsivas, entendendo a estrutura, o estilo e o comportamento de cada parte.</p>
+
+                    <h3>O que você vai aprender</h3>
+                    <ul>
+                        <li>Como estruturar corretamente uma página HTML</li>
+                        <li>Como estilizar elementos com CSS</li>
+                        <li>Como adicionar interatividade com JavaScript</li>
+                        <li>Como organizar seu projeto de forma eficiente</li>
+                        <li>Boas práticas de desenvolvimento web</li>
+                        <li>Responsividade e acessibilidade</li>
+                    </ul>
+
+                    <!-- Seção de tecnologias -->
+                    <div class="tecnologias-grid exemplo-grid">
+                        <article class="tecnologia-card exemplo-card">
+                            <h3>HTML</h3>
+                            <p>Linguagem de marcação para estruturar conteúdo web com semântica moderna.</p>
+                            <div class="destaque-html">#E34F26</div>
+                        </article>
+                        
+                        <article class="tecnologia-card exemplo-card">
+                            <h3>CSS</h3>
+                            <p>Folhas de estilo para design responsivo, animações e layouts modernos.</p>
+                            <div class="destaque-css">#1572B6</div>
+                        </article>
+                        
+                        <article class="tecnologia-card exemplo-card">
+                            <h3>JavaScript</h3>
+                            <p>Linguagem de programação para interatividade e dinamismo nas páginas.</p>
+                            <div class="destaque-js">#F7DF1E</div>
+                        </article>
+                    </div>
+
+                    <!-- Seção de pré-requisitos -->
+                    <div class="pre-requisitos">
+                        <h3>Pré-requisitos</h3>
+                        <p>Para aproveitar ao máximo este tutorial, recomenda-se:</p>
+                        <ul>
+                            <li>Conhecimento básico de uso do computador</li>
+                            <li>Editor de código (VS Code, Sublime Text, etc.)</li>
+                            <li>Navegador web moderno</li>
+                            <li>Vontade de aprender! </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2025 Desenvolvido por <strong>Khalil Monteiro</strong>. Todos os direitos reservados.</p>
+                <p class="versao">Versão 2.0 - Tutorial Interativo</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="visual/js/script.js" defer></script>
+</body>
+</html>
