@@ -1,635 +1,969 @@
-<html>
-	<head>
-		<meta name="author" content="Renan Ponick">
-		<meta charset="utf-8">
-		<link rel="stylesheet" href="../visual/css/estilo.css">
-		<title>Web Site</title>
-	</head>
-	<body>
-		<div id="tudo">
-			<header>
-				Tutorial Website - HTML, CSS e JavaScript
-			</header>
-				<nav>
-					<ul id="menu">
-						<a href="../index.html">
-							<li>Introdução</li>
-						</a>
-						<a href="#">
-							<li>Html</li>
-						</a>
-						<a href="propriedades.html">
-							<li>Css</li>
-						</a>
-						<a href="javascript.html">
-							<li>JavaScript</li>
-						</a>
-					</ul>
-				</nav>
-				<div id="corpo">
-					<div id="titulo">
-						<h2>Html</h2>
-					</div>
-					<div id="conteudo">
-						<div>
-							<h2>html</h2>
-								<p>Esta tag inicia um arquivo HTML.</p>
-							<h4>Atributos</h4>
-								<ul>
-									<li>Atributo lang: Dita uma linguagem para o aquivo HTML.</li>
-								</ul>
-								<h4>Exemplo: </h4>
-							<pre>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Khalil Santana">
+    <meta name="description" content="Aprenda HTML, CSS e JavaScript do zero com exemplos práticos e fáceis de entender.">
+    <meta name="keywords" content="HTML, CSS, JavaScript, tutorial, web, front-end, desenvolvimento web">
+    <title>Tutorial Website - HTML, CSS e JavaScript</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        #tudo {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(135deg, #2c3e50, #4a6491);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* Navegação */
+        nav {
+            background-color: #34495e;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        #menu {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #menu a {
+            color: white;
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            display: block;
+            transition: background-color 0.3s;
+        }
+        
+        #menu a:hover, #menu a[aria-current="page"] {
+            background-color: #2c3e50;
+        }
+        
+        /* Conteúdo Principal */
+        #corpo {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 2rem;
+        }
+        
+        .sidebar {
+            flex: 1;
+            min-width: 250px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-right: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .sidebar h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        .sidebar ul {
+            list-style: none;
+        }
+        
+        .sidebar li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .sidebar a {
+            color: #2c3e50;
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .sidebar a:hover {
+            background-color: #ecf0f1;
+            color: #3498db;
+            padding-left: 1rem;
+        }
+        
+        #conteudo {
+            flex: 3;
+            min-width: 300px;
+        }
+        
+        #titulo {
+            margin-bottom: 2rem;
+        }
+        
+        #titulo h2 {
+            color: #2c3e50;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        /* Estilos para as seções de tags */
+        #conteudo > div {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        #conteudo h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        #conteudo h4 {
+            color: #3498db;
+            margin: 1rem 0;
+        }
+        
+        #conteudo p {
+            margin-bottom: 1rem;
+        }
+        
+        #conteudo ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        #conteudo pre {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+        
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 2rem 0;
+        }
+        
+        /* Exemplos interativos */
+        #conteudo center {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+        
+        #conteudo h1, #conteudo h2, #conteudo h3, 
+        #conteudo h4, #conteudo h5, #conteudo h6 {
+            margin: 0.5rem 0;
+        }
+        
+        #conteudo table {
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        #conteudo table, #conteudo th, #conteudo td {
+            border: 1px solid #ddd;
+            padding: 0.5rem;
+        }
+        
+        #conteudo th {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        /* Formulários e inputs */
+        #conteudo input, #conteudo select, #conteudo textarea, #conteudo button {
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        /* Rodapé */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            #corpo {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                margin-right: 0;
+            }
+            
+            #menu {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="tudo">
+        <header>
+            <h1>Tutorial Web</h1>
+            <p class="tagline">Aprenda desenvolvimento web do zero</p>
+        </header>
+
+        <nav>
+            <ul id="menu">
+                <a href="../index.html">
+                    <li>Introdução</li>
+                </a>
+                <a href="#" aria-current="page">
+                    <li>Html</li>
+                </a>
+                <a href="propriedades.html">
+                    <li>Css</li>
+                </a>
+                <a href="javascript.html">
+                    <li>JavaScript</li>
+                </a>
+            </ul>
+        </nav>
+
+        <div id="corpo">
+            <div id="conteudo">
+                <div id="titulo">
+                    <h2>HTML - Linguagem de Marcação de Hipertexto</h2>
+                    <p>HTML é a base de toda a web. É uma linguagem de marcação usada para criar e estruturar conteúdo na web.</p>
+                </div>
+                
+                <div>
+                    <h2>html</h2>
+                    <p>Esta tag inicia um arquivo HTML.</p>
+                    <h4>Atributos</h4>
+                    <ul>
+                        <li>Atributo lang: Dita uma linguagem para o aquivo HTML.</li>
+                    </ul>
+                    <h4>Exemplo: </h4>
+                    <pre>
 &lt;html lang="pt-br"&gt;(Inicio de um arquivo HTML)
 &lt;/html&gt;(fim do arquivo HTML)
-							</pre>
-						</div>
-					<hr />
-						<div>
-							<h2>head</h2>
-								<p>Esta Tag indica o inicio do cabe&ccedil;alho da pagina.</p>
-							<h4>Exemplo:</h4>
-							<pre>
-&lt; head &gt;(Inicio do cabe&ccedil;alho)
+                    </pre>
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>head</h2>
+                    <p>Esta Tag indica o inicio do cabe&ccedil;alho da pagina.</p>
+                    <h4>Exemplo:</h4>
+                    <pre>
+&lt;head&gt;(Inicio do cabe&ccedil;alho)
 &lt;/head&gt;(fim do cabe&ccedil;alho)
-							</pre>
-						</div>
-					<hr />
-						<div>
-							<h2>title</h2>
-								<p>Esta Tag indica Titulo da pagina.</p>
-							<h4>Exemplo:</h4>
-							<pre>
+                    </pre>
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>title</h2>
+                    <p>Esta Tag indica Titulo da pagina.</p>
+                    <h4>Exemplo:</h4>
+                    <pre>
 &lt;title&gt;(indica o inicio do texto do titulo).
 Exemplo
 &lt;/title&gt;(indica o fim do texto do titulo).
-							</pre>	
-						</div>
-					<hr />
-						<div>
-							<h2>meta</h2>
-								<p>Esta tag introduz informa&ccedil;&otilde;es sobre a pagina.</p>
-							<h4>Atributos:</h4>
-								<ul>
-									<li>Atributo name: da o nome para tag meta</li>
-									<li>Atributo content: dita o conteúdo do nome da meta</li>
-									<li>Atributo charset: dita a formatação da escrita</li>
-								</ul>
-								<h4>Exemplo: </h4>
-							<pre>
+                    </pre>	
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>meta</h2>
+                    <p>Esta tag introduz informa&ccedil;&otilde;es sobre a pagina.</p>
+                    <h4>Atributos:</h4>
+                    <ul>
+                        <li>Atributo name: da o nome para tag meta</li>
+                        <li>Atributo content: dita o conteúdo do nome da meta</li>
+                        <li>Atributo charset: dita a formatação da escrita</li>
+                    </ul>
+                    <h4>Exemplo: </h4>
+                    <pre>
 &lt;meta name="author" content="Exemplo"&gt;
-&lt;meta name="description" content="Introdução
- html"&gt;
-&lt;meta name="keywords" content="introdução,
- html, Exemplo"&gt;
-							</pre>
-						</div>
-					<hr />
-						<div>
-							<h2>body</h2>
-								<p>Esta tag indica o inicio do corpo da pagina.</p>
-							<h4>Exemplo:</h4>
-							<pre>
+&lt;meta name="description" content="Introdução html"&gt;
+&lt;meta name="keywords" content="introdução, html, Exemplo"&gt;
+                    </pre>
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>body</h2>
+                    <p>Esta tag indica o inicio do corpo da pagina.</p>
+                    <h4>Exemplo:</h4>
+                    <pre>
 &lt;body&gt;(Inicio do corpo)
 &lt;/body&gt;(fim do corpo)
-							</pre>
-						</div>
-					<hr />
-						<div>
-							<h2>header</h2>
-								<p>Esta tag cabeçalho do corpo do documento html </p>
-								<h4>Exemplo: </h4>
-							<pre>
+                    </pre>
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>header</h2>
+                    <p>Esta tag cabeçalho do corpo do documento html </p>
+                    <h4>Exemplo: </h4>
+                    <pre>
 &lt;header&gt;Texto do cabeçalho&lt;/header&gt;
-							</pre>
-						</div>
-					<hr />
-						<div>
-							<h2>footer</h2>
-								<p>Esta tag é o rodapé do corpo do documento html</p>
-								<h4>Exemplo: </h4>
-							<pre>
+                    </pre>
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>footer</h2>
+                    <p>Esta tag é o rodapé do corpo do documento html</p>
+                    <h4>Exemplo: </h4>
+                    <pre>
 &lt;footer&gt;Conteúdo do rodapé&lt;/footer&gt;
-							</pre>
-						</div>
-					<hr />
-						<div>
-							<h2>nav</h2>
-								<p>Esta tag define o conjunto de links de navegação</p>
-								<h4>Exemplo: </h4>
-							<pre>
+                    </pre>
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>nav</h2>
+                    <p>Esta tag define o conjunto de links de navegação</p>
+                    <h4>Exemplo: </h4>
+                    <pre>
 &lt;nav&gt; Links &lt;/nav&gt;
-							</pre>
-						</div>
-					<hr />
-						<div>
-							<h2>center</h2>
-								<p>Esta tag posiciona todo conteúdo entre as tags &lt;center&gt; Exemplo &lt;/center&gt; no meio da tela.</p>
-								</ul>
-								<h4>Exemplo:</h4>
-							<pre>
+                    </pre>
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>center</h2>
+                    <p>Esta tag posiciona todo conteúdo entre as tags &lt;center&gt; Exemplo &lt;/center&gt; no meio da tela.</p>
+                    <h4>Exemplo:</h4>
+                    <pre>
 &lt;center&gt; Exemplo &lt;/center&gt;   (exemplo abaixo)
-<center>Exemplo</center>
-							</pre>
-						</div>
-					<hr />
-						<div>
-							<h2>h1 ao h6</h2>
-								<p>Estas tag`s formatam o tamanho das letras tudo que se encontra dentro de &lt;h1&gt; Exemplo &lt;/h1&gt;</p>
-								<h4>Exemplo:</h4>
-								&lt;h1&gt; Exemplo &lt;/h1&gt;
-								<h1> Exemplo </h1>
-								&lt;h2&gt; Exemplo &lt;/h2&gt;
-								<h2> Exemplo </h2>
-								&lt;h3&gt; Exemplo &lt;/h3&gt;
-								<h3> Exemplo </h3>
-								&lt;h4&gt; Exemplo &lt;/h4&gt;
-								<h4> Exemplo </h4>
-								&lt;h5&gt; Exemplo &lt;/h5&gt;
-								<h5> Exemplo </h5>
-								&lt;h6&gt; Exemplo &lt;/h6&gt;
-								<h6> Exemplo </h6>
-						</div>
-					<hr />
-						<div>
-							<h2>br</h2>
-								<p>Esta tag pula uma linha.</p>
-								</ul>
-								<h4>Exemplo:</h4>
-							<pre>
+                    </pre>
+                    <center>Exemplo</center>
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>h1 ao h6</h2>
+                    <p>Estas tag`s formatam o tamanho das letras tudo que se encontra dentro de &lt;h1&gt; Exemplo &lt;/h1&gt;</p>
+                    <h4>Exemplo:</h4>
+                    <pre>
+&lt;h1&gt; Exemplo &lt;/h1&gt;
+                    </pre>
+                    <h1> Exemplo </h1>
+                    <pre>
+&lt;h2&gt; Exemplo &lt;/h2&gt;
+                    </pre>
+                    <h2> Exemplo </h2>
+                    <pre>
+&lt;h3&gt; Exemplo &lt;/h3&gt;
+                    </pre>
+                    <h3> Exemplo </h3>
+                    <pre>
+&lt;h4&gt; Exemplo &lt;/h4&gt;
+                    </pre>
+                    <h4> Exemplo </h4>
+                    <pre>
+&lt;h5&gt; Exemplo &lt;/h5&gt;
+                    </pre>
+                    <h5> Exemplo </h5>
+                    <pre>
+&lt;h6&gt; Exemplo &lt;/h6&gt;
+                    </pre>
+                    <h6> Exemplo </h6>
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>br</h2>
+                    <p>Esta tag pula uma linha.</p>
+                    <h4>Exemplo:</h4>
+                    <pre>
  ...
  Exemplo &lt;br /&gt;
- ...<br />
- Exemplo 
-							</pre>
-						</div>
-					<hr />
-						<div id="limitador">
-							<h2>p</h2>
-								<p>Esta tag inicia um paragrafo.</p>
-							<h4>Atributos:</h4>
-								<ul>
-									<li>Atributo align="left"</li>
-									<li>Atributo align="right"</li>
-									<li>Atributo align="center"</li>
-									<li>Atributo align="justify"</li>
-								</ul>
-								<h4>Exemplo: </h4>
-							<pre>
-* &lt;align="left"&gt;
-<p align="left">align="left"</p>
-* &lt;align="right"&gt;
-<p align="right">align="right"</p>
-* &lt;align="center"&gt;
-<p align="center">align="center"</p>
-* &lt;align="justify"&gt;
-<p align="justify">align="justify"</p>
-							</pre>
-						</div>
-					<hr />
-						<div>
-							<h2>strong</h2>
-								<p>Esta tag deixa em negrito o texto referente</p>
-								<h4>Exemplo:</h4>
-							<pre>
-&lt;strong&gt; Exemplo &lt;strong&gt; <br />
-<strong> Exemplo </strong>
-							</pre>
-						</div>
-					<hr />
-						<div>
-							<h2>em</h2>
-								<p>Esta tag deixa em itálico o texto referente </p>
-								<h4>Exemplo: </h4>
-							<pre>
-&lt;em&gt; Exemplo &lt;em&gt; <br />
-<em> Exemplo </em>
-							</pre>
-						</div>
-					<hr />
-						<div>
-							<h2>u</h2>
-								<p>Esta tag sublima o texto referente</p>
-								<h4>Exemplo: </h4>
-							<pre>
-&lt;u&gt; Exemplo &lt;u&gt; <br />
-<u> Exemplo </u>
-							</pre>
-						</div>
-					<hr />
-						<div>
-						<h2>ul</h2>
-								<p>Esta tag Cria uma lista desorganizada(pontinhos)</p>
-								<h4>Exemplo: </h4>
-							<pre>
+ ...
+                    </pre>
+                    Exemplo <br />
+                    Exemplo 
+                </div>
+                
+                <hr />
+                
+                <div id="limitador">
+                    <h2>p</h2>
+                    <p>Esta tag inicia um paragrafo.</p>
+                    <h4>Atributos:</h4>
+                    <ul>
+                        <li>Atributo align="left"</li>
+                        <li>Atributo align="right"</li>
+                        <li>Atributo align="center"</li>
+                        <li>Atributo align="justify"</li>
+                    </ul>
+                    <h4>Exemplo: </h4>
+                    <pre>
+* &lt;p align="left"&gt;align="left"&lt;/p&gt;
+                    </pre>
+                    <p align="left">align="left"</p>
+                    <pre>
+* &lt;p align="right"&gt;align="right"&lt;/p&gt;
+                    </pre>
+                    <p align="right">align="right"</p>
+                    <pre>
+* &lt;p align="center"&gt;align="center"&lt;/p&gt;
+                    </pre>
+                    <p align="center">align="center"</p>
+                    <pre>
+* &lt;p align="justify"&gt;align="justify"&lt;/p&gt;
+                    </pre>
+                    <p align="justify">align="justify"</p>
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>strong</h2>
+                    <p>Esta tag deixa em negrito o texto referente</p>
+                    <h4>Exemplo:</h4>
+                    <pre>
+&lt;strong&gt; Exemplo &lt;/strong&gt;
+                    </pre>
+                    <strong> Exemplo </strong>
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>em</h2>
+                    <p>Esta tag deixa em itálico o texto referente </p>
+                    <h4>Exemplo: </h4>
+                    <pre>
+&lt;em&gt; Exemplo &lt;/em&gt;
+                    </pre>
+                    <em> Exemplo </em>
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>u</h2>
+                    <p>Esta tag sublima o texto referente</p>
+                    <h4>Exemplo: </h4>
+                    <pre>
+&lt;u&gt; Exemplo &lt;/u&gt;
+                    </pre>
+                    <u> Exemplo </u>
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>ul</h2>
+                    <p>Esta tag Cria uma lista desorganizada(pontinhos)</p>
+                    <h4>Exemplo: </h4>
+                    <pre>
 &lt;ul&gt;
-	&lt;li&gt; 1 &lt;/li&gt;
-	&lt;li&gt; 2 &lt;/li&gt;
+    &lt;li&gt; 1 &lt;/li&gt;
+    &lt;li&gt; 2 &lt;/li&gt;
 &lt;/ul&gt;
-<ul>
-	<li>1</li>
-	<li>2</li>
-</ul>
-							</pre>
-						</div>
-					<hr />
-						<div>
-						<h2>ol</h2>
-								<p>Esta tag cria uma lista ordenada(Numeros).</p>
-								<h4>Exemplo: </h4>
-							<pre>
+                    </pre>
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                    </ul>
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>ol</h2>
+                    <p>Esta tag cria uma lista ordenada(Numeros).</p>
+                    <h4>Exemplo: </h4>
+                    <pre>
 &lt;ol&gt;
-	&lt;li&gt; Exemplo 1 &lt;/li&gt;
-	&lt;li&gt; Exemplo 2 &lt;/li&gt;
+    &lt;li&gt; Exemplo 1 &lt;/li&gt;
+    &lt;li&gt; Exemplo 2 &lt;/li&gt;
 &lt;/ol&gt;
-<ol>
-	<li>Exemplo 1</li>
-	<li>Exemplo 2</li>
-</ol>
-							</pre>
-						</div>
-					<hr />
-						<div>
-						<h2>li</h2>
-								<p>Esta tag cria um item da lista, obrigatório se usado dentro de um ul ou ol</p>
-								<h4>Exemplo: </h4>
-							<pre>
+                    </pre>
+                    <ol>
+                        <li>Exemplo 1</li>
+                        <li>Exemplo 2</li>
+                    </ol>
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>li</h2>
+                    <p>Esta tag cria um item da lista, obrigatório se usado dentro de um ul ou ol</p>
+                    <h4>Exemplo: </h4>
+                    <pre>
 &lt;ol&gt;
-	&lt;li&gt; Exemplo linha 1 &lt;/li&gt;
-	&lt;li&gt; Exemplo linha 2 &lt;/li&gt;
-	&lt;li&gt; Exemplo linha 3 &lt;/li&gt;
-	&lt;li&gt; Exemplo linha 4 &lt;/li&gt;
+    &lt;li&gt; Exemplo linha 1 &lt;/li&gt;
+    &lt;li&gt; Exemplo linha 2 &lt;/li&gt;
+    &lt;li&gt; Exemplo linha 3 &lt;/li&gt;
+    &lt;li&gt; Exemplo linha 4 &lt;/li&gt;
 &lt;/ol&gt;
-<ol>
-<li>Exemplo linha 1</li>
-<li>Exemplo linha 2</li>
-<li>Exemplo linha 3</li>
-<li>Exemplo linha 4</li>
-</ol>
-							</pre>
-						</div>
-				<hr />
-						<div>
-						<h2>a</h2>
-								<p>Esta tag cria um link </p>
-							<h4>Atributos:</h4>
-								<ul>
-									<li>Atributo href é o endereço do link.</li>
-								</ul>
-								<h4>Exemplo: </h4>
-							<pre>
-&lt;a&gt; Link &lt/a&gt;
-<a>Link</a>
-&lt;a href="#"&gt; Link &lt/a&gt;
-<a href="#">Link</a>
-							</pre>
-						</div>
-				<hr />
-						<div>
-						<h2>img</h2>
-								<p>Esta tag informa que o conteúdo será uma imagem.</p>
-							<h4>Atributos:</h4>
-								<ul>
-									<li>Atributo SRC: indica o arquivo a ser carregado.</li>
-									<li>Atributo width: Define a largura da imagem da pagina (pixels ou porcentage).</li>
-									<li>Atributo height: Define a altura da imagem da pagina (pixels ou porcentagem).</li>
-									<li>Atributo alt: Define uma descrição da imagem.</li>
-									<li>Atributo title: Define um titulo para d imagem.</li>
-								</ul>
-								<h4>Exemplo: </h4>
-							<pre>
+                    </pre>
+                    <ol>
+                        <li>Exemplo linha 1</li>
+                        <li>Exemplo linha 2</li>
+                        <li>Exemplo linha 3</li>
+                        <li>Exemplo linha 4</li>
+                    </ol>
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>a</h2>
+                    <p>Esta tag cria um link </p>
+                    <h4>Atributos:</h4>
+                    <ul>
+                        <li>Atributo href é o endereço do link.</li>
+                    </ul>
+                    <h4>Exemplo: </h4>
+                    <pre>
+&lt;a&gt; Link &lt;/a&gt;
+                    </pre>
+                    <a>Link</a>
+                    <pre>
+&lt;a href="#"&gt; Link &lt;/a&gt;
+                    </pre>
+                    <a href="#">Link</a>
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>img</h2>
+                    <p>Esta tag informa que o conteúdo será uma imagem.</p>
+                    <h4>Atributos:</h4>
+                    <ul>
+                        <li>Atributo SRC: indica o arquivo a ser carregado.</li>
+                        <li>Atributo width: Define a largura da imagem da pagina (pixels ou porcentage).</li>
+                        <li>Atributo height: Define a altura da imagem da pagina (pixels ou porcentagem).</li>
+                        <li>Atributo alt: Define uma descrição da imagem.</li>
+                        <li>Atributo title: Define um titulo para d imagem.</li>
+                    </ul>
+                    <h4>Exemplo: </h4>
+                    <pre>
 &lt;img src="../visual/imagens/Sid.jpg" width="100" 
 height="50" title="Sid Espantado" alt="Sid Espantado"
 /&gt;
-<img src="../visual/imagens/Sid.jpg" width="100" height="50" title="Sid Espantado" alt="Sid Espantado">
-							</pre>
-						</div>
-				<hr />
-						<div>
-						<h2>div</h2>
-								<p>Esta tag define a divisão do documento </p>
-							<h4>Atributos:</h4>
-								<ul>
-									<li>Atributo width: Define a largura da imagem da pagina(pixels ou porcentagem)</li>
-									<li>Atributo height: Define a altura da imagem da pagina(pixels ou porcentagem)</li>
-								</ul>
-								<h4>Exemplo: </h4>
-							<pre>
-&lt; div &gt; 
+                    </pre>
+                    <!-- Imagem de exemplo com placeholder -->
+                    <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='50' viewBox='0 0 100 50'%3E%3Crect width='100' height='50' fill='%233498db'/%3E%3Ctext x='50%25' y='50%25' font-size='12' text-anchor='middle' fill='white'%3EImagem Exemplo%3C/text%3E%3C/svg%3E" width="100" height="50" title="Sid Espantado" alt="Sid Espantado">
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>div</h2>
+                    <p>Esta tag define a divisão do documento </p>
+                    <h4>Atributos:</h4>
+                    <ul>
+                        <li>Atributo width: Define a largura da imagem da pagina(pixels ou porcentagem)</li>
+                        <li>Atributo height: Define a altura da imagem da pagina(pixels ou porcentagem)</li>
+                    </ul>
+                    <h4>Exemplo: </h4>
+                    <pre>
+&lt;div&gt; 
 Link 
-&lt; /div&gt;
-<div>
-Link
-								</div>
-							</pre>
-						</div>
-				<hr />
-						<div>
-						<h2>Table</h2>
-								<p>Esta tag dita que o assunto a seguir será uma tabela.</p>
-							<h4>Atributos:</h4>
-								<ul>
-									<li>Atributo border diz o tamanho da margem da tabela//border vai de 1 ate o infinito e além.</li>
-									<li>Atributo height: Define a altura da imagem da pagina(pixels ou porcentagem)</li>
-								</ul>
-								<h4>Exemplo: </h4>
-							<pre>
-->	&lt;table width="50" height="20" border="4"&gt; 
-		&lt;tr
-			&lt;td&gt;  Linha1 &lt;/td&gt; 
-			&lt;td&gt;  Linha2 &lt;/td&gt; 
-		&lt;/tr&gt; 
-->	&lt;/table&gt;
-<table width="50" height="20" border="3">
-	<tr>
-	<td>Linha1</td>
-	<td>Linha2</td>
-	</tr>
-</table>
-							</pre>
-						</div>
-				<hr />
-						<div>
-						<h2>thead</h2>
-								<p>Este é usado dentro da tag table, indica o cabeçalho da tabela.</p>
-							
-								<h4>Exemplo: </h4>
-							<pre>
-thead usa-se TH no lugar de TD<br />
+&lt;/div&gt;
+                    </pre>
+                    <div> 
+                        Link 
+                    </div>
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>Table</h2>
+                    <p>Esta tag dita que o assunto a seguir será uma tabela.</p>
+                    <h4>Atributos:</h4>
+                    <ul>
+                        <li>Atributo border diz o tamanho da margem da tabela//border vai de 1 ate o infinito e além.</li>
+                        <li>Atributo height: Define a altura da imagem da pagina(pixels ou porcentagem)</li>
+                    </ul>
+                    <h4>Exemplo: </h4>
+                    <pre>
 &lt;table width="50" height="20" border="4"&gt; 
-->	&lt;thead&gt;
-		&lt;tr&gt;
-			&lt;th colspan="2" &gt; Cabeça &lt;/th&gt; 
-		&lt;/tr&gt;
-->	&lt;/thead&gt;
-	&lt;tbody&gt;
-		&lt;tr&gt;
-			&lt;td&gt;  Linha1 &lt;/td&gt; 
-			&lt;td&gt;  Linha2 &lt;/td&gt; 
-		&lt;/tr&gt; 
-	&lt;/tbody&gt;
+    &lt;tr&gt;
+        &lt;td&gt;  Linha1 &lt;/td&gt; 
+        &lt;td&gt;  Linha2 &lt;/td&gt; 
+    &lt;/tr&gt; 
 &lt;/table&gt;
-	<table width="50" height="20" border="3">
-	<thead>
-		<tr>
-			<th colspan="2">->Cabeça<-</th>
-		</tr>
-	</thead>
-	<tbody>	
-		<tr>
-			<td>Linha1</td><td>Linha2</td>
-		</tr>
-	</tbody>
-	</table>
-							</pre>
-						</div>
-				<hr />
-						<div>
-						<h2>tbody</h2>
-								<p>Este é usado dentro da tag table, indica o corpo da tabela. </p>
-							<h4>Exemplo: </h4>
-							<pre>
+                    </pre>
+                    <table width="50" height="20" border="3">
+                        <tr>
+                            <td>Linha1</td>
+                            <td>Linha2</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>thead</h2>
+                    <p>Este é usado dentro da tag table, indica o cabeçalho da tabela.</p>
+                    <h4>Exemplo: </h4>
+                    <pre>
+thead usa-se TH no lugar de TD
+&lt;table width="50" height="20" border="4"&gt; 
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th colspan="2" &gt; Cabeça &lt;/th&gt; 
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;  Linha1 &lt;/td&gt; 
+            &lt;td&gt;  Linha2 &lt;/td&gt; 
+        &lt;/tr&gt; 
+    &lt;/tbody&gt;
+&lt;/table&gt;
+                    </pre>
+                    <table width="50" height="20" border="3">
+                        <thead>
+                            <tr>
+                                <th colspan="2">-&gt;Cabeça&lt;-</th>
+                            </tr>
+                        </thead>
+                        <tbody>	
+                            <tr>
+                                <td>Linha1</td><td>Linha2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>tbody</h2>
+                    <p>Este é usado dentro da tag table, indica o corpo da tabela. </p>
+                    <h4>Exemplo: </h4>
+                    <pre>
 &lt;table width="150" height="35" border="4"&gt; 
-->	&lt;tbody&gt;
-		&lt;tr&gt;
-			&lt;td&gt;  Corpo &lt;/td&gt; 
-			&lt;td&gt;  Corpo &lt;/td&gt; 
-		&lt;/tr&gt; 
-->	&lt;/tbody&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;  Corpo &lt;/td&gt; 
+            &lt;td&gt;  Corpo &lt;/td&gt; 
+        &lt;/tr&gt; 
+    &lt;/tbody&gt;
 &lt;/table&gt;
-<table width="150" height="35" border="3">
-	<tbody>	
-		<tr>
-		<td>->Corpo</td><td>->Corpo</td>
-		</tr>
-	</tbody>
-</table>
-							</pre>
-						</div>
-				<hr />
-						<div>
-						<h2>tr</h2>
-								<p>Esta tag cria uma "linha" de tabela</p>
-								</ul>
-								<h4>Exemplo: </h4>
-							<pre>
+                    </pre>
+                    <table width="150" height="35" border="3">
+                        <tbody>	
+                            <tr>
+                                <td>-&gt;Corpo</td><td>-&gt;Corpo</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>tr</h2>
+                    <p>Esta tag cria uma "linha" de tabela</p>
+                    <h4>Exemplo: </h4>
+                    <pre>
 &lt;table width="50" height="35" border="4"&gt; 
-	&lt;thead&gt;
-	->	&lt;tr&gt;
-	&lt;th colspan="2" &gt; Cabeça &lt;/th&gt; 
-	->	&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-	->	&lt;tr&gt;
-	&lt;td&gt;  Linha1 &lt;/td&gt; 
-	&lt;td&gt;  Linha2 &lt;/td&gt; 
-	->	&lt;/tr&gt; 
-	&lt;/tbody&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th colspan="2" &gt; Cabeça &lt;/th&gt; 
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;  Linha1 &lt;/td&gt; 
+            &lt;td&gt;  Linha2 &lt;/td&gt; 
+        &lt;/tr&gt; 
+    &lt;/tbody&gt;
 &lt;/table&gt;
-<table width="50" height="35" border="3">
-	<thead>
-		<tr>
-			<th colspan="2">Cabeça</th>
-		</tr>
-	</thead>
-	<tbody>	
-		<tr>
-			<td>linha1</td><td>linha2</td>
-		</tr>
-	</tbody>
-</table>
-							</pre>
-						</div>
-				<hr />
-						<div>
-						<h2>th</h2>
-								<p>Esta tag é usada dentro da tag head, e cria uma "linha".</p>
-								<h4>Exemplo: </h4>
-							<pre>
+                    </pre>
+                    <table width="50" height="35" border="3">
+                        <thead>
+                            <tr>
+                                <th colspan="2">Cabeça</th>
+                            </tr>
+                        </thead>
+                        <tbody>	
+                            <tr>
+                                <td>linha1</td><td>linha2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>th</h2>
+                    <p>Esta tag é usada dentro da tag head, e cria uma "linha".</p>
+                    <h4>Exemplo: </h4>
+                    <pre>
 &lt;table width="150" height="35" border="4"&gt;
-	&lt;thead&gt;
-		&lt;tr&gt;
-	->	&lt;th colspan="2" &gt; Cabeça &lt;/th&gt;
-		&lt;/tr&gt;
-	&lt;/thead&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th colspan="2" &gt; Cabeça &lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
 &lt;/table&gt; 
-								<table width="150" height="35" border="3">
-									<thead>
-										<tr>
-											<th colspan="2">->Cabeça</th>
-										</tr>
-									</thead>
-								</table>
-							</pre>
-						</div>
-				<hr />
-						<div>
-						<h2>td</h2>
-								<p>Esta tag cria uma coluna na linha.</p>
-							<h4>Atributos:</h4>
-								<ul>
-									<li>Atributo: colspan dita o numero de colunas que a legenda deve ter.</li>
-									<li>Atributo: rowspan dita o numero de linhas que a legenda deve ter.</li>
-								</ul>
-								<h4>Exemplo: </h4>
-							<pre>
+                    </pre>
+                    <table width="150" height="35" border="3">
+                        <thead>
+                            <tr>
+                                <th colspan="2">-&gt;Cabeça</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>td</h2>
+                    <p>Esta tag cria uma coluna na linha.</p>
+                    <h4>Atributos:</h4>
+                    <ul>
+                        <li>Atributo: colspan dita o numero de colunas que a legenda deve ter.</li>
+                        <li>Atributo: rowspan dita o numero de linhas que a legenda deve ter.</li>
+                    </ul>
+                    <h4>Exemplo: </h4>
+                    <pre>
 &lt;table width="50" height="150" border="4"&gt;
-	&lt;thead&gt;
-		&lt;tr&gt;
-		&lt;th&gt; Cabeça &lt;/th&gt;
-		&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-		&lt;tr&gt;
-			&lt;td colspan="2"&gt;  Linha1 &lt;/td&gt;
-		&lt;/tr&gt;
-		&lt;tr&gt;
-			&lt;td rowspan="2"&gt;  Linha2 &lt;/td&gt;
-			&lt;td&gt; X &lt;/td&gt;
-		&lt;/tr&gt;
-		&lt;tr&gt;
-			&lt;td&gt;X&lt;/td&gt;
-		&lt;/tr&gt; 
-	&lt;/tbody&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt; Cabeça &lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td colspan="2"&gt;  Linha1 &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td rowspan="2"&gt;  Linha2 &lt;/td&gt;
+            &lt;td&gt; X &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;X&lt;/td&gt;
+        &lt;/tr&gt; 
+    &lt;/tbody&gt;
 &lt;/table&gt;
-<table width="50" height="150" border="3">
-	<thead>
-		<tr>
-			<th colspan="2">Cabeça</th>
-		</tr>
-	</thead>
-	<tbody>	
-		<tr>
-			<td colspan="2">linha1</td>
-		</tr>
-		<tr>
-			<td rowspan="2">linha2</td><td>X</td>
-		</tr>
-		<tr>
-			<td>XXXX</td>
-		</tr>
-	</tbody>
-</table>
-							</pre>
-						</div>
-				<hr />
-						<div>
-						<h2>form</h2>
-								<p>Esta tag indica que o assunto a seguir será um formulário. </p>
-							<h4>Atributos:</h4>
-								<ul>
-									<li>Atributo name: nome do formulário</li>
-									<li>Atributo action: define o arquivo no qual serão enviados os dados</li>
-									<li>Atributo method: método de como será enviados os dados</li>
-								</ul>
-								<h4>Exemplo: </h4>
-							<pre>
+                    </pre>
+                    <table width="50" height="150" border="3">
+                        <thead>
+                            <tr>
+                                <th colspan="2">Cabeça</th>
+                            </tr>
+                        </thead>
+                        <tbody>	
+                            <tr>
+                                <td colspan="2">linha1</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">linha2</td><td>X</td>
+                            </tr>
+                            <tr>
+                                <td>XXXX</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>form</h2>
+                    <p>Esta tag indica que o assunto a seguir será um formulário. </p>
+                    <h4>Atributos:</h4>
+                    <ul>
+                        <li>Atributo name: nome do formulário</li>
+                        <li>Atributo action: define o arquivo no qual serão enviados os dados</li>
+                        <li>Atributo method: método de como será enviados os dados</li>
+                    </ul>
+                    <h4>Exemplo: </h4>
+                    <pre>
 &lt;form name="formulario" action="#" method="get"&gt;
-	Assunto
+    Assunto
 &lt;/form&gt;
-							</pre>
-						</div>
-				<hr />
-						<div>
-						<h2>input</h2>
-								<p>Esta tag especifica um campo de entrada aonde o usuário pode colocar dados.</p>
-							<h4>Atributos:</h4>
-								<ul>
-									<li>Atributo type: define um tipo de intup</li>
-									<li>Atributo value: Valor do campo</li>
-									<li>Atributo maxlength: define a quantidade de caracteres</li>
-									<li>Atributo size: define o tamanho que o intup será exibido</li>
-									<li>Atributo placeholder: Valor do campo "invisível"</li>
-								</ul>
-								<h4>Exemplo: </h4>
-							<pre>
+                    </pre>
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>input</h2>
+                    <p>Esta tag especifica um campo de entrada aonde o usuário pode colocar dados.</p>
+                    <h4>Atributos:</h4>
+                    <ul>
+                        <li>Atributo type: define um tipo de intup</li>
+                        <li>Atributo value: Valor do campo</li>
+                        <li>Atributo maxlength: define a quantidade de caracteres</li>
+                        <li>Atributo size: define o tamanho que o intup será exibido</li>
+                        <li>Atributo placeholder: Valor do campo "invisível"</li>
+                    </ul>
+                    <h4>Exemplo: </h4>
+                    <pre>
 Nome: &lt;input type="text" name="txtnome" maxlength="20"
  size="15" value="Digite seu nome"&gt;
-Nome: <input type="text" name="txtnome" maxlength="20" size="15" value="Digite seu nome">
-							</pre>
-						</div>
-				<hr />
-						<div>
-						<h2>select</h2>
-								<p>Esta tag permite criar uma lista de seleção</p>
-							<h4>Atributos:</h4>
-								<ul>
-									<li>Atributo name: define o nome de do select</li>
-								</ul>
-								<h4>Exemplo: </h4>
-							<pre>
+                    </pre>
+                    Nome: <input type="text" name="txtnome" maxlength="20" size="15" value="Digite seu nome">
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>select</h2>
+                    <p>Esta tag permite criar uma lista de seleção</p>
+                    <h4>Atributos:</h4>
+                    <ul>
+                        <li>Atributo name: define o nome de do select</li>
+                    </ul>
+                    <h4>Exemplo: </h4>
+                    <pre>
 &lt;select name="selestadosivil"&gt;	
 &lt;/select&gt;
-							</pre>
-						</div>
-				<hr />
-						<div>
-						<h2>option</h2>
-								<p>Esta tag define uma opção de escolha e é usado dentro do select</p>
-							<h4>Atributos:</h4>
-								<ul>
-									<li>Atributo value: define o valor da opção...cada opção deve tem UM valor DIFERENTE.</li>
-									<li>Atributo selected: Traz uma opção seleciona por padrão</li>
-								</ul>
-								<h4>Exemplo: </h4>
-							<pre>
+                    </pre>
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>option</h2>
+                    <p>Esta tag define uma opção de escolha e é usado dentro do select</p>
+                    <h4>Atributos:</h4>
+                    <ul>
+                        <li>Atributo value: define o valor da opção...cada opção deve tem UM valor DIFERENTE.</li>
+                        <li>Atributo selected: Traz uma opção seleciona por padrão</li>
+                    </ul>
+                    <h4>Exemplo: </h4>
+                    <pre>
 &lt;select name="selestadosivil"&gt;
-	&lt;option value="0"&gt;--Escolha--&lt;/option&gt;
-	&lt;option value="1"&gt;--Exemplo1--&lt;/option&gt;
-	&lt;option value="2"&gt;--Exemplo2--&lt;/option&gt;
-	&lt;option value="3"&gt;--Exemplo3--&lt;/option&gt;
-	&lt;option value="4"&gt;--Exemplo4--&lt;/option&gt;
+    &lt;option value="0"&gt;--Escolha--&lt;/option&gt;
+    &lt;option value="1"&gt;--Exemplo1--&lt;/option&gt;
+    &lt;option value="2"&gt;--Exemplo2--&lt;/option&gt;
+    &lt;option value="3"&gt;--Exemplo3--&lt;/option&gt;
+    &lt;option value="4"&gt;--Exemplo4--&lt;/option&gt;
 &lt;/select&gt;
-<select name="selestadosivil">
-	<option value="0">--Escolha--</option>
-	<option value="1">--Exemplo1--</option>
-	<option value="2">--Exemplo2--</option>
-	<option value="3">--Exemplo3--</option>
-	<option value="4">--Exemplo4--</option>	
-</select>
-							</pre>
-						</div>
-				<hr />
-						<div>
-						<h2>textarea</h2>
-								<p>Esta tag cria uma caixa de texto</p>
-							<h4>Atributos:</h4>
-								<ul>
-									<li>Atributo cols: Define a quantidade de colunas de caracteres exibida.</li>
-									<li>Atributo rows: Define a quantidade de linhas exibidas</li>
-								</ul>
-								<h4>Exemplo: </h4>
-							<pre>
+                    </pre>
+                    <select name="selestadosivil">
+                        <option value="0">--Escolha--</option>
+                        <option value="1">--Exemplo1--</option>
+                        <option value="2">--Exemplo2--</option>
+                        <option value="3">--Exemplo3--</option>
+                        <option value="4">--Exemplo4--</option>	
+                    </select>
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>textarea</h2>
+                    <p>Esta tag cria uma caixa de texto</p>
+                    <h4>Atributos:</h4>
+                    <ul>
+                        <li>Atributo cols: Define a quantidade de colunas de caracteres exibida.</li>
+                        <li>Atributo rows: Define a quantidade de linhas exibidas</li>
+                    </ul>
+                    <h4>Exemplo: </h4>
+                    <pre>
 &lt;textarea name="txabiografia" cols="30" rows="2" 
 placeHolder="Olá, fale um pouco sobre você..."&gt;&lt;/textarea&gt;
-<textarea name="txabiografia" cols="30" rows="2" placeHolder="Olá, fale um pouco sobre você..."></textarea>
-							</pre>
-						</div>
-				<hr />
-						<div>
-						<h2>button</h2>
-								<p>Esta tag cria um botão.</p>
-							<h4>Atributos:</h4>
-								<ul>
-									<li>Atributo type: indica o tipo do botão. <br /><br />
-										button-cria um botão.<br />
-										submit-envia dados para validação.<br />
-										reset-limpa comandos inseridos
-									</li>
-								</ul>
-								<h4>Exemplo: </h4>
-							<pre>
+                    </pre>
+                    <textarea name="txabiografia" cols="30" rows="2" placeHolder="Olá, fale um pouco sobre você..."></textarea>
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <h2>button</h2>
+                    <p>Esta tag cria um botão.</p>
+                    <h4>Atributos:</h4>
+                    <ul>
+                        <li>Atributo type: indica o tipo do botão. <br /><br />
+                            button-cria um botão.<br />
+                            submit-envia dados para validação.<br />
+                            reset-limpa comandos inseridos
+                        </li>
+                    </ul>
+                    <h4>Exemplo: </h4>
+                    <pre>
 &lt;button type="button"&gt;Clicar&lt;/button&gt;
 &lt;button type="submit"&gt;Enviar!&lt;/button&gt;
 &lt;button type="reset"&gt;Limpar&lt;/button&gt;
-<button type="button">Clicar</button><button type="submit">Enviar!</button><button type="reset">Limpar</button>
-							</pre>
-						</div>
-					</div>
-				</div>
-			<footer>
-				&copy; 2025 desenvolvido por Khalil Santana. Todos os direitos reservados.
-			</footer>
-		</div>
-	</body>
-</html>
+                    </pre>
+                    <button type="button">Clicar</button><button type="submit">Enviar!</button><button type="reset">Limpar</button>
+                </div>
+            </div>
+            
+            <!-- Sidebar com navegação do tutorial HTML -->
+            <aside class="sidebar">
+                <h2>Tags HTML</h2>
+                <ul>
+                    <li><a href="#html">&lt;html&gt;</a></li>
+                    <li><a href="#head">&lt;head&gt;</a></li>
+                    <li><a href="#title">&lt;title&gt;</a></li>
+                    <li><a href="#meta">&lt;meta&gt;</a></li>
+                    <li><a href="#body">&lt;body&gt;</a></li>
+                    <li><a href="#header">&lt;header&gt;</a></li>
+                    <li><a href="#footer">&lt;footer&gt;</a></li>
+                    <li><a href="#nav">&lt;nav&gt;</a></li>
+                    <li><a href="#center">&lt;center&gt;</a></li>
+                    <li><a href="#h1-h6">&lt;h1&gt; a &lt;h6&gt;</a></
